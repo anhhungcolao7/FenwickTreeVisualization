@@ -47,22 +47,22 @@ public class FirstFX extends Application {
         NodeView node2 = new NodeView(3);
         node.setLayoutX(100);
         node.setLayoutY(100);
-        node1.setLayoutX(123);
+        node1.setLayoutX(100);
         node1.setLayoutY(234);
         node2.setLayoutX(345);
         node2.setLayoutY(456);
-        EdgeView edgeView = new EdgeView(node, node1);
-        EdgeView edgeView1 = new EdgeView(node1, node2);
-//        DirectionEdgeView directionEdgeView = new DirectionEdgeView(node, node2);
+//        EdgeView edgeView = new EdgeView(node, node1);
+//        EdgeView edgeView1 = new EdgeView(node1, node2);
+        DirectionEdgeView directionEdgeView = new DirectionEdgeView(node, node1);
         Button button = new Button("move");
         button.setOnAction(event -> {
-            double x = Math.random() * 1000;
-            double y = Math.random() * 1000;
+            double x = 100;
+            double y = 234 + Math.random() * 1000;
             node1.setLayoutX(x);
             node1.setLayoutY(y);
         });
         
-        Pane pane = new Pane(node, node1, node2, edgeView, edgeView1, button);
+        Pane pane = new Pane(node, node1, node2, directionEdgeView, button);
         Scene scene = new Scene(pane, 1000, 1000);
         stage.setScene(scene);
         stage.show();
