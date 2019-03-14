@@ -47,12 +47,13 @@ public class FirstFX extends Application {
         NodeView node2 = new NodeView(3);
         node.setLayoutX(100);
         node.setLayoutY(100);
-        node1.setLayoutX(300);
-        node1.setLayoutY(300);
-        node2.setLayoutX(600);
-        node2.setLayoutY(600);
+        node1.setLayoutX(123);
+        node1.setLayoutY(234);
+        node2.setLayoutX(345);
+        node2.setLayoutY(456);
         EdgeView edgeView = new EdgeView(node, node1);
         EdgeView edgeView1 = new EdgeView(node1, node2);
+//        DirectionEdgeView directionEdgeView = new DirectionEdgeView(node, node2);
         Button button = new Button("move");
         button.setOnAction(event -> {
             double x = Math.random() * 1000;

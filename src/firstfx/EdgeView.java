@@ -39,6 +39,7 @@ public class EdgeView extends Group {
             Vector2D point1 = new Vector2D(x, y);
             Vector2D point2 = new Vector2D(x1, y1);
             Vector2D vector = point2.sub(point1);
+            System.out.println("x: " + Math2DHelper.translate(point1, vector, radius).getX());
             return Math2DHelper.translate(point1, vector, radius).getX();
         }, this.node.boundsInParentProperty(), this.node1.boundsInParentProperty()));
         this.line.startYProperty().bind(Bindings.createDoubleBinding(() -> {
@@ -65,6 +66,7 @@ public class EdgeView extends Group {
             Vector2D point1 = new Vector2D(x, y);
             Vector2D point2 = new Vector2D(x1, y1);
             Vector2D vector = point1.sub(point2);
+            System.out.println("x1: " + Math2DHelper.translate(point2, vector, radius).getX());
             return Math2DHelper.translate(point2, vector, radius).getX();
         }, this.node.boundsInParentProperty(), this.node1.boundsInParentProperty()));
         this.line.endYProperty().bind(Bindings.createDoubleBinding(() -> {
@@ -96,6 +98,29 @@ public class EdgeView extends Group {
     public EdgeView(NodeView node, NodeView node1) {
         this(node, node1, new Line());
     }
-    
+
+    public Line getLine() {
+        return line;
+    }
+
+    public void setLine(Line line) {
+        this.line = line;
+    }
+
+    public NodeView getNode() {
+        return node;
+    }
+
+    public void setNode(NodeView node) {
+        this.node = node;
+    }
+
+    public NodeView getNode1() {
+        return node1;
+    }
+
+    public void setNode1(NodeView node1) {
+        this.node1 = node1;
+    }
     
 }
