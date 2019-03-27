@@ -1,6 +1,6 @@
 package fenwicktreevisualization.Visualization;
 
-import PseudoCodeDescriptionContainerX.ViewController.PseudoCodeDescriptionContainerViewController;
+import PseudoCodeDescriptionContainer.ViewController.PseudoCodeDescriptionContainerViewController;
 import fenwicktreevisualization.Common.PsudoInterface;
 import fenwicktreevisualization.Controller.Control;
 import fenwicktreevisualization.Model.Layout;

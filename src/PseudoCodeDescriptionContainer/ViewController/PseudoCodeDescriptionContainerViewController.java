@@ -1,6 +1,6 @@
-package PseudoCodeDescriptionContainerX.ViewController;
+package PseudoCodeDescriptionContainer.ViewController;
 
-import PseudoCodeDescriptionContainerX.Model.PseudoCodeContainerModel;
+import PseudoCodeDescriptionContainer.Model.PseudoCodeContainerModel;
 import javafx.geometry.Insets;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;

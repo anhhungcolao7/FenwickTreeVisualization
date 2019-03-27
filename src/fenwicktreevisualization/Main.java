@@ -5,7 +5,7 @@
  */
 package fenwicktreevisualization;
 
-import PseudoCodeDescriptionContainerX.ViewController.PseudoCodeDescriptionContainerViewController;
+import PseudoCodeDescriptionContainer.ViewController.PseudoCodeDescriptionContainerViewController;
 import fenwicktreevisualization.Controller.Control;
 import fenwicktreevisualization.Model.Graph;
 import fenwicktreevisualization.Model.GraphModel;

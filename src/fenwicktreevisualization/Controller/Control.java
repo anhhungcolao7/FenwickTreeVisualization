@@ -1,11 +1,10 @@
 package fenwicktreevisualization.Controller;
 
-import PseudoCodeDescriptionContainerX.ViewController.PseudoCodeDescriptionContainerViewController;
+import PseudoCodeDescriptionContainer.ViewController.PseudoCodeDescriptionContainerViewController;
 import fenwicktreevisualization.Common.Constant;
 import fenwicktreevisualization.Model.VisualizeModel;
 import fenwicktreevisualization.Visualization.GetVisualizationTask;
 import fenwicktreevisualization.Visualization.UpdateVisualizationTask;
-import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;

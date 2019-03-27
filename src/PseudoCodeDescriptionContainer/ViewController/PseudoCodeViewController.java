@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PseudoCodeDescriptionContainerX.ViewController;
+package PseudoCodeDescriptionContainer.ViewController;
 
 
-import PseudoCodeDescriptionContainerX.Model.PseudoCodeModel;
+import PseudoCodeDescriptionContainer.Model.PseudoCodeModel;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;

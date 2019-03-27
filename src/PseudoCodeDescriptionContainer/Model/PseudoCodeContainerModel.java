@@ -1,4 +1,4 @@
-package PseudoCodeDescriptionContainerX.Model;
+package PseudoCodeDescriptionContainer.Model;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
