@@ -3395,8 +3395,8 @@ var dtjava = function() {
             return doInstall(null, platform, callbacks, null);
         },
 
-        //              (TODO: AI: what are limitations on "connect back to origin host?"
-        //                   can someone provide us fake JNLP url to get access to other host?
+        //              (TODO: AI: what are limitations on "connect back to origin hostx?"
+        //                   can someone provide us fake JNLP url to get access to other hostx?
         //                   Perhaps we should support this for relative URLs only?)
         /**
          Launch application (not embedded into browser) based on given

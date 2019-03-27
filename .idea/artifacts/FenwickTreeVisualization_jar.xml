@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="FenwickTreeVisualization:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FenwickTreeVisualization_jar</output-path>
+    <root id="archive" name="FenwickTreeVisualization.jar">
+      <element id="module-output" name="FenwickTreeVisualization" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../QuickSortVisualization/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
