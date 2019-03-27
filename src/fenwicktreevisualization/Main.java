@@ -5,6 +5,7 @@
  */
 package fenwicktreevisualization;
 
+import PseudoCodeDescriptionContainer.ViewController.PseudoCodeDescriptionContainerViewController;
 import fenwicktreevisualization.Controller.Control;
 import fenwicktreevisualization.Model.Graph;
 import fenwicktreevisualization.Model.GraphModel;
@@ -35,6 +36,9 @@ public class Main extends Application {
         Control controls = new Control(new VisualizeModel(graphModel, graph, layout));
         controls.initComponents();
         root.setLeft(controls);
+        PseudoCodeDescriptionContainerViewController pseudoCodeDescriptionContainer = new PseudoCodeDescriptionContainerViewController();
+        root.setRight(pseudoCodeDescriptionContainer);
+        pseudoCodeDescriptionContainer.settModel("111", "222", 3);
         Scene scene = new Scene(root, Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
         stage.setScene(scene);
         stage.show();
