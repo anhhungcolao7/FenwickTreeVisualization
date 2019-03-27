@@ -80,8 +80,9 @@ public class FenWickTree extends Group {
     public List<UpdateNodeStatus> getUpdateStepList (int index, int value) {
         List<UpdateNodeStatus> result = new ArrayList<>();
         while (index != this.root) {
+            int currentValue = this.values.get(index);
             int newValue = this.values.get(index) + value;
-            result.add(new UpdateNodeStatus(index, newValue));
+            result.add(new UpdateNodeStatus(index, newValue, currentValue));
             this.values.set(index, newValue);
             index = this.parents.get(index);
         }
@@ -93,7 +94,7 @@ public class FenWickTree extends Group {
         int currentValue = 0;
         while (index != 0) {
             currentValue += this.values.get(index);
-            result.add(new GetNodeStatus(index, currentValue));
+            result.add(new GetNodeStatus(index, currentValue, this.values.get(index)));
             index -= (index & -index);
         }
         return result;

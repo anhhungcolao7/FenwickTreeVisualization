@@ -5,6 +5,7 @@
  */
 package extension;
 
+import PseudoCodeDescriptionContainerX.ViewController.PseudoCodeDescriptionContainerViewController;
 import fenwicktreevisualization.Controller.Control;
 import fenwicktreevisualization.Model.Graph;
 import fenwicktreevisualization.Model.GraphModel;
@@ -142,9 +143,11 @@ public class MyExtensionFrame extends JFrame implements IExtension {
         root.setTop(graph.getContentPane());
         Layout layout = new Layout(graph);
         layout.update();
-        Control controls = new Control(new VisualizeModel(graphModel, graph, layout));
+        PseudoCodeDescriptionContainerViewController pseudoCodeDescriptionContainerViewController = new PseudoCodeDescriptionContainerViewController();
+        Control controls = new Control(new VisualizeModel(graphModel, graph, layout), pseudoCodeDescriptionContainerViewController);
         controls.initComponents();
         root.setLeft(controls);
+        root.setRight(pseudoCodeDescriptionContainerViewController);
         Scene scene = new Scene(root, Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
         return scene;
     }

@@ -3,10 +3,12 @@ package fenwicktreevisualization.Model;
 public class GetNodeStatus {
     private int index;
     private int currentSum;
+    private int currentValue;
 
-    public GetNodeStatus(int index, int currentSum) {
+    public GetNodeStatus(int index, int currentSum, int currentValue) {
         this.index = index;
         this.currentSum = currentSum;
+        this.currentValue = currentValue;
     }
 
     public int getIndex() {
@@ -23,5 +25,13 @@ public class GetNodeStatus {
 
     public void setCurrentSum(int currentSum) {
         this.currentSum = currentSum;
+    }
+
+    public int getCurrentValue() {
+        return currentValue;
+    }
+
+    public void setCurrentValue(int currentValue) {
+        this.currentValue = currentValue;
     }
 }

@@ -1,9 +1,11 @@
 package fenwicktreevisualization.Controller;
 
+import PseudoCodeDescriptionContainerX.ViewController.PseudoCodeDescriptionContainerViewController;
 import fenwicktreevisualization.Common.Constant;
 import fenwicktreevisualization.Model.VisualizeModel;
 import fenwicktreevisualization.Visualization.GetVisualizationTask;
 import fenwicktreevisualization.Visualization.UpdateVisualizationTask;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -21,6 +23,7 @@ import java.util.List;
 
 public class Control extends GridPane {
     private VisualizeModel visualizeModel;
+    private PseudoCodeDescriptionContainerViewController pseudoCodeDescriptionContainerViewController;
     private Text txtNumberOfNode;
     private Text txtUpdate;
     private Text txtGet;
@@ -51,8 +54,9 @@ public class Control extends GridPane {
         this.btnDoGet.setDisable(false);
         this.btnDoUpdate.setDisable(false);
     }
-    public Control(VisualizeModel visualizeModel) {
+    public Control(VisualizeModel visualizeModel, PseudoCodeDescriptionContainerViewController pseudoCodeDescriptionContainerViewController) {
         this.visualizeModel = visualizeModel;
+        this.pseudoCodeDescriptionContainerViewController = pseudoCodeDescriptionContainerViewController;
         this.txtNumberOfNode = new Text("n:");
         this.txtUpdate = new Text("Update:");
         this.txtGet = new Text("Get:");
@@ -66,6 +70,8 @@ public class Control extends GridPane {
         this.btnUpdateNodeNums = new Button("Update");
         this.btnDoUpdate = new Button("Update");
         this.btnDoGet = new Button("Get");
+        this.btnDoGet.setDisable(true);
+        this.btnDoUpdate.setDisable(true);
 
         this.btnUpdateNodeNums.setOnAction((event) -> {
             String s = (String) this.cbNumberOfNode.valueProperty().getValue();
@@ -73,13 +79,13 @@ public class Control extends GridPane {
             this.visualizeModel.getGraphModel().update(newNumberOfNode);
             this.visualizeModel.getGraph().update();
             this.visualizeModel.getLayout().update();
-
+            this.pseudoCodeDescriptionContainerViewController.settModel("Built Fenwick Tree with size: " + newNumberOfNode, "");
 
             this.cbUpdateNodes.getItems().clear();
             this.cbUpdateNodes.getItems().addAll(getOptions(newNumberOfNode));
             this.cbGetNodes.getItems().clear();
             this.cbGetNodes.getItems().addAll(getOptions(newNumberOfNode));
-
+            enableAllButton();
         });
 
 
@@ -98,7 +104,8 @@ public class Control extends GridPane {
                 int index = Integer.parseInt((String)cbUpdateNodes.valueProperty().getValue());
                 int value = Integer.parseInt(tfUpdateValue.getText());
                 disableAllButton();
-                (new UpdateVisualizationTask(this.visualizeModel.getGraphModel(), this.visualizeModel.getLayout(), this,  index, value)).start();
+                Thread task = new Thread((new UpdateVisualizationTask(this.visualizeModel.getGraphModel(), this.visualizeModel.getLayout(), pseudoCodeDescriptionContainerViewController, this,  index, value)));
+                task.start();
             } catch (Exception e) {
                 //
             }
@@ -108,7 +115,7 @@ public class Control extends GridPane {
             try {
                 int index = Integer.parseInt((String) cbGetNodes.valueProperty().getValue());
                 disableAllButton();
-                (new GetVisualizationTask(this.visualizeModel.getGraphModel(), this.visualizeModel.getLayout(), this, index)).start();
+                (new GetVisualizationTask(this.visualizeModel.getGraphModel(), this.visualizeModel.getLayout(), pseudoCodeDescriptionContainerViewController, this, index)).start();
             } catch (Exception e) {
 
             }
